@@ -1,7 +1,5 @@
 #include "unistd.h"	
 #include <stdlib.h>
-#include <errno.h>	
-#include <stdio.h>
 #include "shell.h"
 #include "parser.h"
 #include "my_printf.h"
@@ -15,8 +13,9 @@
 int my_shell(){
 	char* line;
 	char** ligne_par;
+	char* env[] = {"SHELL=pretty_shell", NULL};
 	int status;
-	for(;;){
+	do{
 		my_printf("$");
 		int size_line = 0;
 		line = read_line(&size_line);
@@ -24,10 +23,11 @@ int my_shell(){
 			continue;
 		}
 		ligne_par = parser(line, size_line);
-		status = execute(ligne_par);
+		status = launcher(ligne_par, env);
 		free(line);
 		free(ligne_par);
-     	}
+     	}while(status);
+	return 1;
 }
 
 
@@ -36,7 +36,7 @@ char my_getchar(void){
 	int bRead = read(STDIN_FILENO, buff, 1);
 	if(bRead < 0){
 		exit(EXIT_FAILURE);
-	}else if(bRead = 1){
+	}else if(bRead == 1){
 		return (char)buff[0];
 	}else{
 		exit(EXIT_FAILURE);

@@ -67,6 +67,7 @@ int my_pow(int nb, int expo){
 	for(int i = expo; i > 1; i--){
 		temp = temp * nb;
 	}
+	return temp;
 }
 
 void my_putnb_base(int nb, int base){
