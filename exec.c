@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
-
+#include <errno.h>
 #include "exec.h"
 
 
@@ -22,6 +22,15 @@ int (*built_in_cmd_func[]) (char**) = {
 
 
 int my_cd(char** args){
+	errno = 0;
+	if(chdir(args[1]) == -1){
+		if(errno == ENOENT){
+			my_printf("the path doesn't exist");
+		}else if(errno == EACCES){
+			my_printf("acces denied");
+		}else
+			return 1;
+	}
 	return 1;
 }
 
@@ -30,6 +39,7 @@ int my_help(char** args){
 }
 
 int my_exit(char** args){
+	_exit(EXIT_FAILURE);
 	return 0;
 }
 

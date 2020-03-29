@@ -13,6 +13,7 @@ set(SRCS
     my_printf.c
     parser.c
     shell.c
+    color.c
     )
     
 set(HEADERS
@@ -20,6 +21,7 @@ set(HEADERS
     my_printf.h
     parser.h
     shell.h
+    color.h
     )
 
 # On indique que l'on veut un exécutable "hello" compilé à partir des fichiers décrits par les variables SRCS et HEADERS

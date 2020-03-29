@@ -80,7 +80,7 @@ void my_putnb_base(int nb, int base){
 	}
 	int* tab_reminder = (int*)malloc(sizeof(int)*(i+1));
 	int j = 0;
-	for(j; j <= i ; j++){
+	for(j = 0; j <= i ; j++){
 		*(tab_reminder + j) = nb % base;
 		nb = (int)(nb / base);
 		if(nb <= 0){
@@ -88,7 +88,7 @@ void my_putnb_base(int nb, int base){
 		}
 	}
 		
-	for(j; j >= 0; j--){
+	for(; j >= 0; j--){
 		temp = *(tab_reminder + j);
 		if(temp  <= 9){
 			my_put_char(temp + 48);

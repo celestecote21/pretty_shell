@@ -4,6 +4,7 @@
 #include "parser.h"
 #include "my_printf.h"
 #include "exec.h"
+#include "color.h"
 
 #define BUFFER_SIZE 1024
 
@@ -15,7 +16,8 @@ int my_shell(){
 	char** ligne_par;
 	char* env[] = {"SHELL=pretty_shell", NULL};
 	int status;
-	do{
+	for(;;){
+		change_color(GREEN, 1);
 		my_printf("$");
 		int size_line = 0;
 		line = read_line(&size_line);
@@ -26,7 +28,7 @@ int my_shell(){
 		status = launcher(ligne_par, env);
 		free(line);
 		free(ligne_par);
-     	}while(status);
+     	}
 	return 1;
 }
 
