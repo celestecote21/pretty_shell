@@ -1,13 +1,10 @@
 #include <stdlib.h>
-#include "my_printf.h"
+#include "lib.h"
 #include "color.h"
 
 void change_color(color_e  color, int bold){
 	//TODO: faire la fonction plus propre 
-	char* code;
-	code = malloc(8);
-	if(code == NULL)
-		my_printf("error allocation");
+	char	code[7];
 	
 	code[0] = '\033';
 	code[1] = '[';
@@ -20,7 +17,7 @@ void change_color(color_e  color, int bold){
 	code[5] = (char)((int)color + 49);
 	code[6] = 'm';
 	my_printf("%s", code);
-	my_printf("test");
+	my_printf("");
 }
 
 

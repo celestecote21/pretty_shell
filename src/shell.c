@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "shell.h"
 #include "parser.h"
-#include "my_printf.h"
+#include "lib.h"
 #include "exec.h"
 #include "color.h"
 
@@ -18,7 +18,8 @@ int my_shell(){
 	int status;
 	for(;;){
 		change_color(GREEN, 1);
-		my_printf("$");
+		my_printf(">");
+		reset_color();
 		int size_line = 0;
 		line = read_line(&size_line);
 		if(size_line < 1){

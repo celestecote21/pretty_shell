@@ -3,6 +3,7 @@
 #include <sys/wait.h>
 #include <errno.h>
 #include "exec.h"
+#include "lib.h"
 
 
 
@@ -25,9 +26,9 @@ int my_cd(char** args){
 	errno = 0;
 	if(chdir(args[1]) == -1){
 		if(errno == ENOENT){
-			my_printf("the path doesn't exist");
+			my_printf("the path doesn't exist \n");
 		}else if(errno == EACCES){
-			my_printf("acces denied");
+			my_printf("acces denied \n");
 		}else
 			return 1;
 	}
@@ -39,7 +40,7 @@ int my_help(char** args){
 }
 
 int my_exit(char** args){
-	_exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 	return 0;
 }
 
@@ -64,7 +65,7 @@ int str_comp(char* str1, char* str2){
 int launcher(char** argv, char** env){
 	
 	for(int i = 0; built_in_command[i]; i++){
-		if(str_comp(argv[0], built_in_command[i]) == 1){
+		if(my_strcmp(argv[0], built_in_command[i]) == 0){
 			return (*built_in_cmd_func[i])(argv);
 		}
 	}

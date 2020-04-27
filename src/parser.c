@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "parser.h"
-#include "my_printf.h"
+#include "lib.h"
 
 
 #define BUFFER_SIZE 64
