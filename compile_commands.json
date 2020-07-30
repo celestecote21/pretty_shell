@@ -1,0 +1,19 @@
+[
+ {
+  "directory": "/home/celeste/docs/C/shell/src",
+  "arguments": [
+   "gcc",
+   "-c",
+   "color.c",
+   "exec.c",
+   "main.c",
+   "my_printf.c",
+   "parser.c",
+   "shell.c",
+   "-L../libs/",
+   "-lmy",
+   "-I../include/"
+  ],
+  "file": "shell.c"
+ }
+]
