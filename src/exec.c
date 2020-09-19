@@ -84,16 +84,21 @@ int execute(char** argv){
 	int status;
 
 	switch(child_pid = fork()){
+		// error on the fork
 		case -1:
 			my_printf("error on fork");
 			exit(EXIT_FAILURE);
 			break;
+		// child process
 		case 0:
 			// my_printf("child processe");
 			
 			execvp(argv[0], argv);
 			my_printf("the commande is not found\n");
+			// we exit the child process
+			exit(EXIT_SUCCESS);
 			break;
+		// parent process
 		default: 
 			wait(&status);
 	}

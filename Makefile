@@ -17,4 +17,5 @@ $(OBJ): $(SRC)
 	cd $(SRC_DIR) && $(MAKE)
 
 clean:
+	rm $(NAME)
 	@(cd $(SRC_DIR) && $(MAKE) $@)	

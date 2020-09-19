@@ -50,6 +50,7 @@ char my_getchar(void){
 char* read_line(int* size_line){
 	char ch;
 	char* buff = malloc(BUFFER_SIZE);
+
 	int current_size = BUFFER_SIZE;
 	int position;	
 	if(!buff){
@@ -71,5 +72,6 @@ char* read_line(int* size_line){
 		}
 	}
 	*size_line = position;
+	buff[position] = '\0'; // put the end caractere a the end of the string we get
 	return buff;
 }
