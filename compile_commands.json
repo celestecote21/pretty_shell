@@ -1,0 +1,62 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../include/",
+            "color.c"
+        ],
+        "directory": "/home/celeste/docs/C/shell/src",
+        "file": "color.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../include/",
+            "exec.c"
+        ],
+        "directory": "/home/celeste/docs/C/shell/src",
+        "file": "exec.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../include/",
+            "main.c"
+        ],
+        "directory": "/home/celeste/docs/C/shell/src",
+        "file": "main.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../include/",
+            "my_printf.c"
+        ],
+        "directory": "/home/celeste/docs/C/shell/src",
+        "file": "my_printf.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../include/",
+            "parser.c"
+        ],
+        "directory": "/home/celeste/docs/C/shell/src",
+        "file": "parser.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../include/",
+            "shell.c"
+        ],
+        "directory": "/home/celeste/docs/C/shell/src",
+        "file": "shell.c"
+    }
+]

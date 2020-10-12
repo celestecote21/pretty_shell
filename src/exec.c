@@ -85,10 +85,12 @@ int execute(char** argv)
 
     child_pid = fork();
 	switch(child_pid){
+		// error on the fork
 		case -1:
 			my_printf("error on fork");
 			exit(EXIT_FAILURE);
 			break;
+		// child process
 		case 0:
 			// my_printf("child processe");
 			
@@ -97,6 +99,7 @@ int execute(char** argv)
             status = 0;
             exit(EXIT_FAILURE);
 			break;
+		// parent process
 		default: 
 			wait(&status);
 	}
