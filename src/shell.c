@@ -17,15 +17,15 @@ int my_shell(){
 	char* env[] = {"SHELL=pretty_shell", NULL};
 	int status;
 	for(;;){
-		change_color(GREEN, 1);
+		//change_color(GREEN, 1);
 		my_printf(">");
-		reset_color();
+		//reset_color();
 		int size_line = 0;
 		line = read_line(&size_line);
 		if(size_line < 1){
 			continue;
 		}
-		ligne_par = parser(line, size_line);
+		ligne_par = parser(line);
 		status = launcher(ligne_par, env);
 		free(line);
 		free(ligne_par);
@@ -58,6 +58,8 @@ char* read_line(int* size_line){
 	for(position = 0;;position++){
 		ch = my_getchar();
 		if(ch == '\n'){
+            buff[position] = '\0';
+            position++;
 			break;
 		}
 		buff[position] = ch;

@@ -105,7 +105,7 @@ void my_putnb_base(int nb, int base){
 
 ssize_t my_getline(char** lineptr){
 	size_t sizeTotal = 0;
-	*lineptr = (char*) malloc(BUFFER_SIZE);
+	*lineptr = (char*)malloc(BUFFER_SIZE);
 	if(*lineptr == NULL){
 		my_printf("error allocating memory");
 	}

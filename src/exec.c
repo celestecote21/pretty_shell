@@ -73,8 +73,8 @@ int launcher(char** argv, char** env){
 	return execute(argv);
 }
 
-int execute(char** argv){
-
+int execute(char** argv)
+{
 	char* env[] ={"SHELL=the_best", NULL};
 	pid_t child_pid;
 	if(argv[0] == NULL){
@@ -83,7 +83,8 @@ int execute(char** argv){
 	}
 	int status;
 
-	switch(child_pid = fork()){
+    child_pid = fork();
+	switch(child_pid){
 		case -1:
 			my_printf("error on fork");
 			exit(EXIT_FAILURE);
@@ -93,6 +94,8 @@ int execute(char** argv){
 			
 			execvp(argv[0], argv);
 			my_printf("the commande is not found\n");
+            status = 0;
+            exit(EXIT_FAILURE);
 			break;
 		default: 
 			wait(&status);

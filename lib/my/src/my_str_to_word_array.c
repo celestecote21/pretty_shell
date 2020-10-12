@@ -1,17 +1,22 @@
+/*
+** EPITECH PROJECT, 2020
+** NAME_OF_THE_PROJECT
+** File description:
+** 
+*/
+
 #include <stdlib.h>
-#include "parser.h"
-//#include "lib.h"
-#include "my.h"
 
-
-#define BUFFER_SIZE 64
-
+char *my_strncpy(char *dest, char const *src, int n);
 
 static int need_cut(char c)
 {
-    if(c == ' ' || c == '\0')
+    if((c <= 'Z' && c >= 'A') || (c >= 'a' && c <= 'z'))
+        return (0);
+    if (c >= '0' && c <= '9')
+        return (0);
+    else
         return (1);
-    return (0);
 }
 
 static char *strdup_delim(char const *all_str, int *padding)
@@ -38,7 +43,7 @@ static void rectifie_when_null(int *i, int *padding, int *nb_word)
     *nb_word = *nb_word - 1;
 }
 
-char **parser(char *str)
+char **my_str_to_word_array(char const *str)
 {
     int nb_word = 0;
     int padding = 0;
@@ -60,4 +65,3 @@ char **parser(char *str)
     result[nb_word] = NULL;
     return result;
 }
-
